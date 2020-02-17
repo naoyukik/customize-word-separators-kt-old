@@ -1,0 +1,32 @@
+<idea-plugin>
+    <id>net.dstribe.customize_word_separators</id>
+    <name>Customize Word Separators</name>
+    <vendor email="mmaga+github@dstribe.net" url="">DsTribe</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectConfigurable groupId="editor" instance="net.dstribe.customize_word_separators.CustomizeWordSeparatorsConfigurable"
+          id="preference.CustomizeWordSeparatorsConfigurable">
+        </projectConfigurable>
+        <projectService serviceImplementation="net.dstribe.customize_word_separators.CustomizeWordSeparatorsState"/>
+    </extensions>
+
+    <application-components>
+    </application-components>
+
+    <project-components>
+    </project-components>
+
+    <actions>
+        <group id="dstribe.customizeWordSeparatorsKt" text="Customize Word Separators"
+          description="Customize word separators" popup="true">
+            <add-to-group group-id="EditMenu" anchor="last"/>
+            <action class="net.dstribe.customize_word_separators.NextWordAction"
+              id="CustomizeWordSeparatorsKt.NextWord"
+              text="Move Caret to Next Word"
+              description="Move next word"/>
+        </group>
+    </actions>
+
+</idea-plugin>

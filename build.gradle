@@ -1,0 +1,42 @@
+buildscript {
+    ext.kotlin_version = '1.3.61'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    id "org.jetbrains.intellij" version "0.4.15"
+}
+
+apply plugin: 'org.jetbrains.intellij'
+apply plugin: 'kotlin'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+intellij {
+    version '2019.3'
+    pluginName 'Customize Word Seprators'
+}
+
+group 'net.dstribe.customize_word_separators'
+version '0.2.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
