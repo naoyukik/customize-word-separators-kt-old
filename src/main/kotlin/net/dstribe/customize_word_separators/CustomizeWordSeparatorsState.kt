@@ -24,7 +24,7 @@ class CustomizeWordSeparatorsState(val project: Project) :
     }
 
     class State {
-        var myCustomPattern: String? = null
+        var myCustomPattern: String = ""
     }
 
     fun setCustomPattern(value: String) {

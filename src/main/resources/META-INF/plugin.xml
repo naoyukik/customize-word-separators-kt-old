@@ -26,6 +26,18 @@
               id="CustomizeWordSeparatorsKt.NextWord"
               text="Move Caret to Next Word"
               description="Move next word"/>
+            <action class="net.dstribe.customize_word_separators.PrevWordAction"
+              id="CustomizeWordSeparatorsKt.PrevWord"
+              text="Move Caret to Prev Word"
+              description="Move prev word"/>
+            <action class="net.dstribe.customize_word_separators.NextWordWithSelectionAction"
+              id="CustomizeWordSeparatorsKt.NextWordWithSelection"
+              text="Move Caret to Next Word with Selection"
+              description="Move next word with Selection"/>
+            <action class="net.dstribe.customize_word_separators.PrevWordWithSelectionAction"
+              id="CustomizeWordSeparatorsKt.PrevWordWithSelection"
+              text="Move Caret to Prev Word with Selection"
+              description="Move prev word with Selection"/>
         </group>
     </actions>
 

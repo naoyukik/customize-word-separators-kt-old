@@ -9,6 +9,8 @@ import kotlin.collections.set
 
 
 class MoveCaretWordUtil {
+    private var state: CustomizeWordSeparatorsState? = null
+
     fun moveCaretWord(
         editor: Editor,
         caret: Caret,
@@ -21,6 +23,8 @@ class MoveCaretWordUtil {
         val logicalPos = caret.logicalPosition
         val currentCaretOffset: Int = caret.offset
         val selectionStart: Int = caret.leadSelectionOffset
+
+        state = editor.project?.let { CustomizeWordSeparatorsState.getInstance(it) }
 
         if (isNext && currentCaretOffset == document.textLength) return
 
@@ -161,11 +165,18 @@ class MoveCaretWordUtil {
     }
 
     private fun getUserPatterns(): LinkedHashMap<String, String> {
-
         val patternMap = LinkedHashMap<String, String>()
-        if (patternMap.isEmpty()) {
+        val userPatterns = state?.myState?.myCustomPattern
+        if (userPatterns == null || userPatterns.isEmpty()) {
             return patternMap
         }
+        var items: Array<String>
+        val lines: Array<String> = userPatterns.split("\n").toTypedArray()
+        for (line: String in lines) {
+            items = line.split(",").toTypedArray()
+            patternMap[items[0]] = items[1].trim()
+        }
+
         return patternMap
     }
 

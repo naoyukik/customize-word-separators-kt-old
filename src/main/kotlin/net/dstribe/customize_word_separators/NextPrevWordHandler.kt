@@ -9,12 +9,8 @@ import com.intellij.openapi.editor.actionSystem.EditorActionHandler
 class NextPrevWordHandler(
     private var myNext: Boolean,
     private var myWithSelection: Boolean,
-    e: AnActionEvent
+    val e: AnActionEvent
 ) : EditorActionHandler(true) {
-//    private var myNext: Boolean = next
-//    private var myWithSelection: Boolean = withSelection
-    val state = e.project?.let { CustomizeWordSeparatorsState.getInstance(it) }
-
     override fun doExecute(editor: Editor, caret: Caret?, dataContext: DataContext?) {
         if (caret != null) {
             val moveCaretWordUtil = MoveCaretWordUtil()
