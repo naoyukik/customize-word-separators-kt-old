@@ -9,10 +9,10 @@ import javax.swing.JTextArea
 class CustomizeWordSeparatorsConfigurable(private val project: Project) : SearchableConfigurable {
 
     private val state = CustomizeWordSeparatorsState.getInstance(project)
-    private val myTextArea = JTextArea("", 25, 10)
+    private val myTextArea: JTextArea = JTextArea("", 25, 10)
 
     override fun isModified(): Boolean {
-        return state.myState.myCustomPattern != myTextArea.text
+        return state.myState.customPattern1 != myTextArea.text
     }
 
     override fun getId(): String {
@@ -28,7 +28,7 @@ class CustomizeWordSeparatorsConfigurable(private val project: Project) : Search
     }
 
     override fun createComponent(): JComponent? {
-        myTextArea.text = state.myState.myCustomPattern
+        myTextArea.text = state.myState.customPattern1
         return panel {
             row("Patterns") {
                 myTextArea()

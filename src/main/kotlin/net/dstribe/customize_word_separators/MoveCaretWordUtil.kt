@@ -166,7 +166,7 @@ class MoveCaretWordUtil {
 
     private fun getUserPatterns(): LinkedHashMap<String, String> {
         val patternMap = LinkedHashMap<String, String>()
-        val userPatterns = state?.myState?.myCustomPattern
+        val userPatterns = state?.myState?.customPattern1
         if (userPatterns == null || userPatterns.isEmpty()) {
             return patternMap
         }

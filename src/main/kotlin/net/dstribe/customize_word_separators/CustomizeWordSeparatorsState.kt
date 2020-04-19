@@ -20,15 +20,15 @@ class CustomizeWordSeparatorsState(val project: Project) :
     }
 
     override fun loadState(state: State) {
-        myState.myCustomPattern = state.myCustomPattern
+        myState.customPattern1 = state.customPattern1
     }
 
     class State {
-        var myCustomPattern: String = ""
+        var customPattern1: String = ""
     }
 
     fun setCustomPattern(value: String) {
-        myState.myCustomPattern = value
+        myState.customPattern1 = value
     }
 
     companion object {

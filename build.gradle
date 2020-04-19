@@ -15,16 +15,23 @@ plugins {
 apply plugin: 'org.jetbrains.intellij'
 apply plugin: 'kotlin'
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
 
 intellij {
-    version '2019.3'
+    version 'LATEST-EAP-SNAPSHOT'
     pluginName 'Customize Word Seprators'
 }
 
+patchPluginXml {
+    changeNotes """
+      - change: Comptible version 2020.1 EAP """
+    untilBuild null
+    pluginDescription 'This plugin allows you to Customize word separators.'
+}
+
 group 'net.dstribe.customize_word_separators'
-version '0.2.0'
+version '0.2.1'
 
 repositories {
     mavenCentral()
@@ -39,4 +46,8 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+}
+
+publishPlugin {
+    token intellijPublishToken
 }
